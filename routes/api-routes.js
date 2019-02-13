@@ -35,7 +35,12 @@ module.exports = function(app) {
             companyName: req.body.companyName,
             clientName: req.body.clientName,
             clientEmail: req.body.clientEmail,
-            lastFiscalYear: req.body.lastFiscalYear
+            totalEmployees: req.body.totalEmployees,
+            costPerEmployee: req.body.costPerEmployee,
+            dataCollectionTime: req.body.dataCollectionTime,
+            dataProcessingTime: req.body.dataProcessingTime,
+            securityComplienceTime: req.body.securityComplienceTime,
+            emailVolume: req.body.emailVolume
         })
         .then(function(dbDataPoints) {
             res.json(dbDataPoints)
