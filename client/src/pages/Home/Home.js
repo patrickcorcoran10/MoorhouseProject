@@ -11,9 +11,10 @@ export default class Home extends Component {
         };
     }
     componentDidMount() {
-        console.log("we are mounted");
-        axios.get('/api/home')
+        console.log("we are mounted on the Dashboard");
+        axios.get('/api/dashboard')
         .then(res => {
+            console.log(res)
             this.setState({ inputs: res.data })
         })
     };

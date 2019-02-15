@@ -2,14 +2,14 @@ const db = require('../models');
 
 module.exports = function(app) {
     // Get All Route for Dashboard
-    app.get('/api/home', function(req, res) {
-        db.moorhouseProject.findAll({}).then(function(dbDataPoints) {
+    app.get('/api/dashboard', function(req, res) {
+        db.moorhouseproject.findAll({}).then(function(dbDataPoints) {
             res.json(dbDataPoints);
         });
     });
     // Search a Single Record Route
     app.get('/api/view:id', function(req, res) {
-        db.moorhouseProject.findAll({
+        db.moorhouseproject.findAll({
             where: {
                 id: req.params.id
             }
@@ -30,8 +30,8 @@ module.exports = function(app) {
         })
     });
     // Post Route for Form Page
-    app.post('/api/form', function(req, res) {
-        db.moorhouseProject.create({
+    app.post('/api/moorhouseProject', function(req, res) {
+        db.moorhouseproject.create({
             companyName: req.body.companyName,
             clientName: req.body.clientName,
             clientEmail: req.body.clientEmail,

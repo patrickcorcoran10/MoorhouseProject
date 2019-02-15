@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const MoorhouseProject = sequelize.define('moorhouseProject', {
+    const MoorhouseProject = sequelize.define('moorhouseproject', {
         companyName: DataTypes.STRING,
         clientName: DataTypes.STRING,
         clientEmail: DataTypes.STRING,
