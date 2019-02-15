@@ -36,7 +36,41 @@ class Form extends Component {
         });
         console.log(this.state)
     };
-
+    acceptDataCollectionTime = e => {
+        this.setState({ 
+            inputs: {
+                dataCollectionTime: this.refs.dataCollectionTime.value
+            }
+        })
+    };
+    acceptDataProcessingTime = e => {
+        this.setState({
+            inputs: {
+                dataProcessingTime: this.refs.dataProcessingTime.value
+            }
+        })
+    };
+    acceptSecurityComplienceTime = e => {
+        this.setState({
+            inputs: {
+                securityComplienceTime: this.refs.securityComplienceTime.value
+            }
+        })
+    };
+    acceptEmailVolume = e => {
+        this.setState({
+            inputs: {
+                emailVolume: this.refs.emailVolume.value
+            }
+        })
+    };
+    acceptPlanSelect = e => {
+        this.setState({
+            inputs: {
+                planSelect: this.refs.planSelect.value
+            }
+        })
+    };
     saveInputs = event => {
         console.log('We are taking this and putting it in the database');
         axios.post('/api/moorhouseProject', {
@@ -48,7 +82,8 @@ class Form extends Component {
             dataCollectionTime: this.refs.dataCollectionTime.value,
             dataProcessingTime: this.refs.dataProcessingTime.value,
             securityComplienceTime: this.refs.securityComplienceTime.value,
-            emailVolume: this.refs.emailVolume.value
+            emailVolume: this.refs.emailVolume.value,
+            planSelect: this.refs.planSelect.value
         })
         .then(function(response) {
             console.log(response);
@@ -68,6 +103,7 @@ class Form extends Component {
         this.refs.dataProcessingTime.value = '';
         this.refs.securityComplienceTime.value = '';
         this.refs.emailVolume.value = '';
+        this.refs.planSelect.value = '';
         this.setState({
             inputs: {}
         })
@@ -77,49 +113,125 @@ class Form extends Component {
     return (
       <div className='container'>
         <div className='row'>
-            <div className='col-md-1'>
-
+            <div className='col-md-3'>
             </div>
-            <div className='col-md-10'>
+            <div className='col-md-6'>
                 <div className='header'>
                     <h4>Please enter data for your company</h4>
                 </div>
+                <p>Company Name:</p>
+                <input ref='companyName' onChange={this.acceptCompanyName}/>
+            </div>
+            <div className='col-md-3'>
+            </div>
+        </div>
+        <div className='row'>
+            <div className='col-md-1'>
+            </div>
+            <div className='col-md-5'>
+                <p>Client Name:</p>
+                <input ref='clientName' onChange={this.acceptClientName}/>
+            </div>
+            <div className='col-md-5'>
+                <p>Client Email Address:</p>
+                <input ref='clientEmail' onChange={this.acceptClientEmail}/>
+            </div>
+            <div className='col-md-1'>
+            </div>
+        </div>
+        <hr/>
+        <div className='row'>
+            <div className='col-md-1'>
+            </div>
+            <div className='col-md-10'>
+                <form>
+                    <p>Total Employees:</p>
+                    <input type='range' className="form-control-range" id="formControlRange" defaultValue='50' ref='totalEmployees' onChange={this.acceptEmployeeTotal}/>
+                    <p>Cost per Employee</p>
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text">$</span>
+                        </div>
+                        <input onChange={this.acceptCostPerEmployee} ref='costPerEmployee' type="text" className="form-control" aria-label="Amount (to the nearest dollar)"/>
+                        <div className="input-group-append">
+                            <span className="input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <p>How would you characterize your company's time spent collecting data?</p>
+                    <div className="input-group mb-3">
+                        <select ref='dataCollectionTime' onChange={this.acceptDataCollectionTime} className="custom-select" id="inputGroupSelect02">
+                            <option>Choose...</option>
+                            <option defaultValue="1">Low</option>
+                            <option defaultValue="2">Medium</option>
+                            <option defaultValue="3">High</option>
+                        </select>
+                        <div className="input-group-append">
+                            <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
+                        </div>
+                    </div>
+                    <p>How would you characterize your company's time spent processing data?</p>
+                    <div className="input-group mb-3">
+                        <select ref='dataProcessingTime' onChange={this.acceptDataProcessingTime} className="custom-select" id="inputGroupSelect02">
+                            <option>Choose...</option>
+                            <option defaultValue="1">Low</option>
+                            <option defaultValue="2">Medium</option>
+                            <option defaultValue="3">High</option>
+                        </select>
+                        <div className="input-group-append">
+                            <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
+                        </div>
+                    </div>
+                    <p>How would you characterize your company's current level of data security and process compliance?</p>
+                    <div className="input-group mb-3">
+                        <select ref='securityComplienceTime' onChange={this.acceptSecurityComplienceTime} className="custom-select" id="inputGroupSelect02">
+                            <option>Choose...</option>
+                            <option defaultValue="1">Low</option>
+                            <option defaultValue="2">Medium</option>
+                            <option defaultValue="3">High</option>
+                        </select>
+                        <div className="input-group-append">
+                            <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
+                        </div>
+                    </div>
+                    <p>How would you characterize your company's current email volume?</p>
+                    <div className="input-group mb-3">
+                        <select ref='emailVolume' onChange={this.acceptEmailVolume} className="custom-select" id="inputGroupSelect02">
+                            <option>Choose...</option>
+                            <option defaultValue="1">Low</option>
+                            <option defaultValue="2">Medium</option>
+                            <option defaultValue="3">High</option>
+                        </select>
+                        <div className="input-group-append">
+                            <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
+                        </div>
+                    </div>
+                    <p>Plan Selection</p>
+                    <div className="input-group mb-3">
+                        <select ref='planSelection' onChange={this.acceptPlanSelect} className="custom-select" id="inputGroupSelect02">
+                            <option>Choose...</option>
+                            <option defaultValue="1">Standard</option>
+                            <option defaultValue="2">Plus</option>
+                        </select>
+                        <div className="input-group-append">
+                            <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
+                        </div>
+                    </div>
+                    <hr />
+                    
+                </form>
             </div>
             <div className='col-md-1'>
             </div>
         </div>
         <div className='row'>
-            <div className='col-md-1'>
+            <div className='col-md-4'>
 
             </div>
-            <div className='col-md-10'>
-                <form>
-                    <p>Company Name:</p>
-                    <input ref='companyName' onChange={this.acceptCompanyName}/>
-                    <p>Client Name:</p>
-                    <input ref='clientName' onChange={this.acceptClientName}/>
-                    <p>Client Email Address:</p>
-                    <input ref='clientEmail' onChange={this.acceptClientEmail}/>
-                    <p>Total Employees:</p>
-                    <input type='range' className="form-control-range" id="formControlRange" defaultValue='0' ref='totalEmployees' onChange={this.acceptEmployeeTotal}/>
-                    <p>Cost per Employee</p>
-                    <input ref='costPerEmployee' type="currency" onChange={this.acceptCostPerEmployee}/>
-                    <p>How would you characterize your company's time spent collecting data?</p>
-                    <input ref='dataCollectionTime'/>
-                    <p>How would you characterize your company's time spent processing data?</p>
-                    <input ref='dataProcessingTime'/>
-                    <p>How would you characterize your company's current level of data security and process compliance?</p>
-                    <input ref='securityComplienceTime'/>
-                    <p>How would you characterize your company's current email volume?</p>
-                    <input ref='emailVolume'/>
-                    <p>Plan Selection</p>
-                    <input />
-                    <hr />
-                    <button onClick={this.saveInputs}>Calculate</button>
-                    <button onClick={this.resetButton}>Reset Fields</button>
-                </form>
+            <div className='col-md-4'>
+                <button onClick={this.saveInputs}>Calculate</button>
+                <button onClick={this.resetButton}>Reset Fields</button>
             </div>
-            <div className='col-md-1'>
+            <div className='col-md-4'>
                 
             </div>
         </div>
