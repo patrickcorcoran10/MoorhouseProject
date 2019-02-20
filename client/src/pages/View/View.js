@@ -18,7 +18,8 @@ export default class View extends Component {
       console.log(selected);
       this.setState({
         inputs: selected
-      })
+      });
+      console.log(this.state)
     })
   };
 
@@ -28,19 +29,218 @@ export default class View extends Component {
         paddingTop: '80px'
       }
     };
+
     return (
       <div style={style.container} className='container'>
-        <div className='row'>
-          <div className='col-md-3'>
-
+        <div className="row" id="header">
+          <div className='col-md-1'>
           </div>
-          <div className='col-md-6'>
-            <p>View Page</p>
+          <div className="col-md-10">
+              <h4>The Employee Experience ROI Calculator</h4>
+              <br />
+              <h6>{this.state.inputs.companyName}</h6>
+              <br />
+              <p>Client Name: {this.state.inputs.clientName}</p>
+              <p>Client Email: {this.state.inputs.clientEmail}</p>
           </div>
-          <div className='col-md-3'>
+          <div className='col-md-1'>
+          </div>
+      </div>
+      <hr/>
+      <div className='row'>
+        <div className='col-md-1'>
+        </div>
+        <div className='col-md-5' id='tableLeft'>
+          <p>Time Spent Collecting Data</p>
+        </div>
+        <div className='col-md-5' id='tableRight'>
+          <div className='row'>
+            <div className='col-sm-8'>
+              <p>Time Spent Collecting Data</p>
+              <br/>
+              <p>Annual Hours</p>
+              <br/>
+              <p>Hours spent per worker collecting data</p>
+              <br/>
+              <p>Total Workers</p>
+              <br/>
+              <p>Total hours spent collecting data</p>
+              <br/>
+              <p>Cost per hour</p>
+              <br/>
+              <p>Total cost of collecting data</p>
+              <br/>
+              <p>Catalytic savings</p>
+              <br/>
+              <strong>Data Collection Savings</strong>
+              <br/>
+            </div>
+            <div className='col-sm-4'>
+              <p>%</p>
+              <br/>
+              <p>#</p>
+              <br/>
+              <p>#</p>
+              <br/>
+              <p>#</p>
+              <br/>
+              <p>#</p>
+              <br/>
+              <p>$</p>
+              <br/>
+              <p>$</p>
+              <br/>
+              <p>%</p>
+              <br/>
+              <strong>$</strong>
+              <br/>
+            </div>
           </div>
         </div>
+        <div className='col-md-1'>
+        </div>
       </div>
+      <hr/>
+      <div className='row'>
+        <div className='col-md-1'>
+        </div>
+        <div className='col-md-5' id='tableLeft'>
+          <p>Time Spent Processing Data</p>
+        </div>
+        <div className='col-md-5' id='tableRight'>
+          <div className='row'>
+            <div className='col-sm-8'>
+              <p>Time spent processing data</p>
+              <br/>
+              <p>Annual Hours</p>
+              <br/>
+              <p>Hours spent per worker processing data</p>
+              <br/>
+              <p>Total Workers</p>
+              <br/>
+              <p>Total hours spent processing data</p>
+              <br/>
+              <p>Cost per hour</p>
+              <br/>
+              <p>Total cost of processing data</p>
+              <br/>
+              <p>Catalytic savings</p>
+              <br/>
+              <strong>Data Collection Savings</strong>
+              <br/>
+            </div>
+            <div className='col-sm-4'>
+              <p>%</p>
+              <br/>
+              <p>#</p>
+              <br/>
+              <p>#</p>
+              <br/>
+              <p>#</p>
+              <br/>
+              <p>#</p>
+              <br/>
+              <p>$</p>
+              <br/>
+              <p>$</p>
+              <br/>
+              <p>%</p>
+              <br/>
+              <strong>$</strong>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div className='col-md-1'>
+        </div>
+      </div>
+      <hr/>
+      <div className='row'>
+        <div className='col-md-1'>
+        </div>
+        <div className='col-md-5' id='tableLeft'>
+          <p>Compliance Savings and Improved Security</p>
+        </div>
+        <div className='col-md-5' id='tableRight'>
+          <div className='row'>
+            <div className='col-sm-8'>
+              <p>Average cost of data breach</p>
+              <br/>
+              <p>Chances of data breach</p>
+              <br/>
+              <p>Total data breach costs</p>
+              <br/>
+              <p>Catalytic savings</p>
+              <br/>
+              <strong>Compliance and Security Savings</strong>
+              <br/>
+            </div>
+            <div className='col-sm-4'>
+              <p>$</p>
+              <br/>
+              <p>%</p>
+              <br/>
+              <p>$</p>
+              <br/>
+              <p>%</p>
+              <br/>
+              <strong>$</strong>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div className='col-md-1'>
+        </div>
+      </div>
+      <hr/>
+      <div className='row'>
+        <div className='col-md-1'>
+        </div>
+        <div className='col-md-5' id='tableLeft'>
+          <p>Productivity increase via automation</p>
+        </div>
+        <div className='col-md-5' id='tableRight'>
+          <div className='row'>
+            <div className='col-sm-8'>
+              <p>Total users</p>
+              <br/>
+              <p>Cost of unnecessary emails per user</p>
+              <br/>
+              <p>Total email costs</p>
+              <br/>
+              <p>Catalytic savings</p>
+              <br/>
+              <strong>Automation Savings</strong>
+              <br/>
+            </div>
+            <div className='col-sm-4'>
+              <p>#</p>
+              <br/>
+              <p>$</p>
+              <br/>
+              <p>$</p>
+              <br/>
+              <p>%</p>
+              <br/>
+              <strong>$</strong>
+              <br/>
+            </div>
+          </div>
+        </div>
+        <div className='col-md-1'>
+        </div>
+      </div>
+      <hr/>
+      <div className='row'>
+        <div className='col-md-3'>
+        </div>
+        <div className='col-md-6'>
+          <button onClick={this.ROI}>View ROI</button>
+        </div>
+        <div className='col-md-3'>
+        </div>
+      </div>
+    </div>
     )
   }
 }
