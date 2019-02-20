@@ -11,12 +11,12 @@ export default function Navbar() {
         <li className="nav-item">
           <Link to="/form" className="nav-link">Form</Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link to="/view" className="nav-link">Company View</Link>
-        </li>
-        <li className="nav-item">
+        </li> */}
+        {/* <li className="nav-item">
           <Link to="/display" className="nav-link">Display</Link>
-        </li>
+        </li> */}
         <li className="nav-item">
           <Link to="/signin" className="nav-link">Log-Out</Link>
         </li>

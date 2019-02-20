@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+
 
 class Form extends Component {
     constructor(props) {
@@ -146,7 +148,7 @@ class Form extends Component {
             <div className='col-md-10'>
                 <form>
                     <p>Total Employees:</p>
-                    <input type='range' className="form-control-range" id="formControlRange" defaultValue='50' ref='totalEmployees' onChange={this.acceptEmployeeTotal}/>
+                    <input ref='totalEmployees' onChange={this.acceptEmployeeTotal}/>
                     <p>Cost per Employee</p>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
@@ -228,7 +230,7 @@ class Form extends Component {
 
             </div>
             <div className='col-md-4'>
-                <button onClick={this.saveInputs}>Calculate</button>
+                <button onClick={this.saveInputs}><Link to='/dashboard'>Calculate </Link></button>
                 <button onClick={this.resetButton}>Reset Fields</button>
             </div>
             <div className='col-md-4'>
