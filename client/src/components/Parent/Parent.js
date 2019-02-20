@@ -28,6 +28,15 @@ export default class Parent extends Component {
         this.setState({
             inputs: {
                 id: idChosen,
+                companyName: '',
+                clientName: '',
+                clientEmail: '',
+                totalEmplyees: '',
+                costPerHour: '',
+                dataCollectionTime: '',
+                dataProcessingTime: '',
+                securityComplienceTime: '',
+                emailVolume: ''
             }
         })
     }

@@ -207,7 +207,7 @@ class Form extends Component {
                     </div>
                     <p>Plan Selection</p>
                     <div className="input-group mb-3">
-                        <select ref='planSelection' onChange={this.acceptPlanSelect} className="custom-select" id="inputGroupSelect02">
+                        <select ref='planSelect' onChange={this.acceptPlanSelect} className="custom-select" id="inputGroupSelect02">
                             <option>Choose...</option>
                             <option defaultValue="1">Standard</option>
                             <option defaultValue="2">Plus</option>
