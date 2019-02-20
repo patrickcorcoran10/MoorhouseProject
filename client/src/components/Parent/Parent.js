@@ -43,7 +43,7 @@ export default class Parent extends Component {
   render() {
     return (
       <div className='parent'>
-        <Route exact path='/' render={(props) => <Home {...props} click={this.onUpdate.bind(this)} />} />
+        <Route exact path='/dashboard' render={(props) => <Home {...props} click={this.onUpdate.bind(this)} />} />
         <Route exact path='/form' component={Form} />
         <Route exact path='/view' render={(props) => <View {...props} id={this.state.inputs.id} />} />
         <Route exact path='/display' component={Display} />

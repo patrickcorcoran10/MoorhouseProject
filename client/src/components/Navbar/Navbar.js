@@ -6,7 +6,7 @@ export default function Navbar() {
     <div id='navbar' className='navbar'>
       <ul className="nav nav-tabs">
         <li className="nav-item">
-          <Link to="/" className="navbar-brand">Dashboard</Link>
+          <Link to="/dashboard" className="navbar-brand">Dashboard</Link>
         </li>
         <li className="nav-item">
           <Link to="/form" className="nav-link">Form</Link>

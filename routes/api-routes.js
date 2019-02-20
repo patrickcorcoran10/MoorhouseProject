@@ -20,7 +20,7 @@ module.exports = function(app) {
     });
     // Delete Route for Dashboard
     app.delete('/api/delete:id', function(req, res) {
-        db.moorhouseProject.destroy({
+        db.moorhouseprojects.destroy({
             where: {
                 id: req.params.id
             }
