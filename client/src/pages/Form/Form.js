@@ -64,7 +64,9 @@ class Form extends Component {
             inputs: {
                 emailVolume: this.refs.emailVolume.value
             }
+            
         })
+        console.log(e.target.value);
     };
     acceptPlanSelect = e => {
         this.setState({
@@ -149,7 +151,7 @@ class Form extends Component {
                 <form>
                     <p>Total Employees:</p>
                     <input ref='totalEmployees' onChange={this.acceptEmployeeTotal}/>
-                    <p>Cost per Employee</p>
+                    <p>Cost per Employee per Hour</p>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text">$</span>
@@ -163,9 +165,9 @@ class Form extends Component {
                     <div className="input-group mb-3">
                         <select ref='dataCollectionTime' onChange={this.acceptDataCollectionTime} className="custom-select" id="inputGroupSelect02">
                             <option>Choose...</option>
-                            <option defaultValue="1">Low</option>
-                            <option defaultValue="2">Medium</option>
-                            <option defaultValue="3">High</option>
+                            <option value='.025'>Low</option>
+                            <option value=".05">Medium</option>
+                            <option value=".075">High</option>
                         </select>
                         <div className="input-group-append">
                             <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
@@ -175,9 +177,9 @@ class Form extends Component {
                     <div className="input-group mb-3">
                         <select ref='dataProcessingTime' onChange={this.acceptDataProcessingTime} className="custom-select" id="inputGroupSelect02">
                             <option>Choose...</option>
-                            <option defaultValue="1">Low</option>
-                            <option defaultValue="2">Medium</option>
-                            <option defaultValue="3">High</option>
+                            <option value=".025">Low</option>
+                            <option value=".05">Medium</option>
+                            <option value=".075">High</option>
                         </select>
                         <div className="input-group-append">
                             <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
@@ -187,9 +189,9 @@ class Form extends Component {
                     <div className="input-group mb-3">
                         <select ref='securityComplienceTime' onChange={this.acceptSecurityComplienceTime} className="custom-select" id="inputGroupSelect02">
                             <option>Choose...</option>
-                            <option defaultValue="1">Low</option>
-                            <option defaultValue="2">Medium</option>
-                            <option defaultValue="3">High</option>
+                            <option value=".01">Low</option>
+                            <option value=".02">Medium</option>
+                            <option value=".03">High</option>
                         </select>
                         <div className="input-group-append">
                             <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
@@ -199,9 +201,9 @@ class Form extends Component {
                     <div className="input-group mb-3">
                         <select ref='emailVolume' onChange={this.acceptEmailVolume} className="custom-select" id="inputGroupSelect02">
                             <option>Choose...</option>
-                            <option defaultValue="1">Low</option>
-                            <option defaultValue="2">Medium</option>
-                            <option defaultValue="3">High</option>
+                            <option value=".05">Low</option>
+                            <option value=".075">Medium</option>
+                            <option value=".1">High</option>
                         </select>
                         <div className="input-group-append">
                             <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
@@ -211,8 +213,8 @@ class Form extends Component {
                     <div className="input-group mb-3">
                         <select ref='planSelect' onChange={this.acceptPlanSelect} className="custom-select" id="inputGroupSelect02">
                             <option>Choose...</option>
-                            <option defaultValue="1">Standard</option>
-                            <option defaultValue="2">Plus</option>
+                            <option value="8">Standard</option>
+                            <option value="15">Plus</option>
                         </select>
                         <div className="input-group-append">
                             <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>

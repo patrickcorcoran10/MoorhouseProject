@@ -23,6 +23,9 @@ export default class View extends Component {
       console.log(this.state)
     })
   };
+  
+  
+  
 
   render() {
     const style = {
@@ -31,7 +34,6 @@ export default class View extends Component {
       }
     };
     const assumptions = {
-      
       emailCostPerEmployee: 1800,
       chanceOfDataBreach: .025,
       dataBreachCost: 1600000,
@@ -40,8 +42,6 @@ export default class View extends Component {
       annualHours: 2000
     };
     
-
-
     return (
       <div style={style.container} className='container'>
         <div className="row" id="header">
@@ -86,7 +86,7 @@ export default class View extends Component {
               <p>{(assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)}</p>
               <p>${this.state.inputs.costPerEmployee}</p>             
               <p>${((assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)) * parseInt(this.state.inputs.costPerEmployee)}</p>
-              <p>%</p>
+              <p>{this.state.inputs.dataCollectionTime}</p>
               <strong>$</strong>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default class View extends Component {
               <p>{this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours)}</p>
               <p>${this.state.inputs.costPerEmployee}</p>
               <p>${parseInt(this.state.inputs.costPerEmployee) * (this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours))}</p>
-              <p>%</p>
+              <p>{this.state.inputs.dataProcessingTime}</p>
               <strong>$</strong>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default class View extends Component {
               <p>${assumptions.dataBreachCost}</p>
               <p>{assumptions.chanceOfDataBreach}</p>
               <p>{assumptions.dataBreachCost * assumptions.chanceOfDataBreach}</p>
-              <p>%</p>
+              <p>{this.state.inputs.securityComplienceTime}</p>
               <strong>$</strong>
             </div>
           </div>
@@ -178,7 +178,7 @@ export default class View extends Component {
               <p>{this.state.inputs.totalEmployees}</p>
               <p>${assumptions.emailCostPerEmployee}</p>
               <p>${this.state.inputs.totalEmployees * assumptions.emailCostPerEmployee}</p>
-              <p>%</p>
+              <p>{this.state.inputs.emailVolume}</p>
               <strong>$</strong>
             </div>
           </div>
