@@ -79,6 +79,7 @@ class Form extends Component {
         .catch(function(error) {
             console.log(error);
         });
+        this.props.history.push('/dashboard');
     };
     resetButton = e => {
         e.preventDefault()

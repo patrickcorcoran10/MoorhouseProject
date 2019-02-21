@@ -73,25 +73,31 @@ import axios from 'axios';
             <div className='row'>
                 <div className='col-md-1'>
                 </div>
-                <div className='col-md-2' id='numbers'>
-                    <strong>Annual Subscription Cost:</strong>
-                    <p>Data Collection Savings: ${this.state.inputs.dataCollectionTime*((assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)) * (parseInt(this.state.inputs.costPerEmployee))}</p>
-                    <p>Data Processsing Savings: ${this.state.inputs.dataProcessingTime * parseInt(this.state.inputs.costPerEmployee) * (this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours))}</p>
-                    <p>Complience and Security Savings: ${this.state.inputs.securityComplienceTime * (assumptions.dataBreachCost * assumptions.chanceOfDataBreach)}</p>
-                    <p>Automation Savings: ${this.state.inputs.emailVolume * (this.state.inputs.totalEmployees * assumptions.emailCostPerEmployee)}</p>
-                    <strong>Annual Catalytic Value</strong>
-                    <hr/>
-                    <strong>ROI</strong>
-                </div>
-                <div className='col-md-8'>
+                <div className='col-md-10'>
                     <div className="graph">
                         <Bar 
                             data={this.state.graphInputs}
                             options = {{
-                                maintainAspectRatio: true
+                                maintainAspectRatio: false
                             }}
                         />
                     </div>
+                </div>
+                <div className='col-md-1'>
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col-md-1'>
+                </div>
+                <div className='col-md-10' id='numbers'>
+                    <strong>Annual Subscription Cost: ${this.state.inputs.planSelect * 12 * this.state.inputs.totalEmployees}</strong>
+                    <p>Data Collection Savings: ${this.state.inputs.dataCollectionTime*((assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)) * (parseInt(this.state.inputs.costPerEmployee))}</p>
+                    <p>Data Processsing Savings: ${this.state.inputs.dataProcessingTime * parseInt(this.state.inputs.costPerEmployee) * (this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours))}</p>
+                    <p>Complience and Security Savings: ${this.state.inputs.securityComplienceTime * (assumptions.dataBreachCost * assumptions.chanceOfDataBreach)}</p>
+                    <p>Automation Savings: ${this.state.inputs.emailVolume * (this.state.inputs.totalEmployees * assumptions.emailCostPerEmployee)}</p>
+                    <strong>Annual Catalytic Value: ${(this.state.inputs.emailVolume * (this.state.inputs.totalEmployees * assumptions.emailCostPerEmployee))+(this.state.inputs.securityComplienceTime * (assumptions.dataBreachCost * assumptions.chanceOfDataBreach))+(this.state.inputs.dataProcessingTime * parseInt(this.state.inputs.costPerEmployee) * (this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours)))+(this.state.inputs.dataCollectionTime*((assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)) * (parseInt(this.state.inputs.costPerEmployee)))}</strong>
+                    <hr/>
+                    <strong>ROI: {((this.state.inputs.emailVolume * (this.state.inputs.totalEmployees * assumptions.emailCostPerEmployee))+(this.state.inputs.securityComplienceTime * (assumptions.dataBreachCost * assumptions.chanceOfDataBreach))+(this.state.inputs.dataProcessingTime * parseInt(this.state.inputs.costPerEmployee) * (this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours)))+(this.state.inputs.dataCollectionTime*((assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)) * (parseInt(this.state.inputs.costPerEmployee))))/(this.state.inputs.planSelect * 12 * this.state.inputs.totalEmployees)}</strong>
                 </div>
                 <div className='col-md-1'>
                 </div>
