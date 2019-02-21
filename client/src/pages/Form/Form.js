@@ -68,13 +68,7 @@ class Form extends Component {
         })
         console.log(e.target.value);
     };
-    acceptPlanSelect = e => {
-        this.setState({
-            inputs: {
-                planSelect: this.refs.planSelect.value
-            }
-        })
-    };
+    
     saveInputs = event => {
         console.log('We are taking this and putting it in the database');
         axios.post('/api/moorhouseProject', {
@@ -87,7 +81,7 @@ class Form extends Component {
             dataProcessingTime: this.refs.dataProcessingTime.value,
             securityComplienceTime: this.refs.securityComplienceTime.value,
             emailVolume: this.refs.emailVolume.value,
-            planSelect: this.refs.planSelect.value
+            // planSelect: this.refs.planSelect.value
         })
         .then(function(response) {
             console.log(response);
@@ -107,7 +101,7 @@ class Form extends Component {
         this.refs.dataProcessingTime.value = '';
         this.refs.securityComplienceTime.value = '';
         this.refs.emailVolume.value = '';
-        this.refs.planSelect.value = '';
+        // this.refs.planSelect.value = '';
         this.setState({
             inputs: {}
         })
@@ -209,19 +203,7 @@ class Form extends Component {
                             <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
                         </div>
                     </div>
-                    <p>Plan Selection</p>
-                    <div className="input-group mb-3">
-                        <select ref='planSelect' onChange={this.acceptPlanSelect} className="custom-select" id="inputGroupSelect02">
-                            <option>Choose...</option>
-                            <option value="8">Standard</option>
-                            <option value="15">Plus</option>
-                        </select>
-                        <div className="input-group-append">
-                            <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
-                        </div>
-                    </div>
                     <hr />
-                    
                 </form>
             </div>
             <div className='col-md-1'>

@@ -24,8 +24,13 @@ export default class View extends Component {
     })
   };
   
-  
-  
+  acceptPlanSelect = e => {
+    this.setState({
+        inputs: {
+            planSelect: this.refs.planSelect.value
+        }
+    })
+  };
 
   render() {
     const style = {
@@ -47,13 +52,27 @@ export default class View extends Component {
         <div className="row" id="header">
           <div className='col-md-1'>
           </div>
-          <div className="col-md-10">
+          <div className="col-md-5">
               <h4>The Employee Experience ROI Calculator</h4>
               <br />
               <h6>{this.state.inputs.companyName}</h6>
               <br />
               <p>Client Name: {this.state.inputs.clientName}</p>
               <p>Client Email: {this.state.inputs.clientEmail}</p>
+          </div>
+          <div className='col-md-5'>
+            <p>Plan Selection</p>
+              <div className="input-group mb-3">
+                  <select ref='planSelect' onChange={this.acceptPlanSelect} className="custom-select" id="inputGroupSelect02">
+                      <option>Choose...</option>
+                      <option value="8">Standard</option>
+                      <option value="15">Plus</option>
+                  </select>
+                  <div className="input-group-append">
+                      <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
+                  </div>
+              </div>
+              <button onClick={this.ROI}>View ROI</button>
           </div>
           <div className='col-md-1'>
           </div>
@@ -191,7 +210,6 @@ export default class View extends Component {
         <div className='col-md-3'>
         </div>
         <div className='col-md-6'>
-          <button onClick={this.ROI}>View ROI</button>
         </div>
         <div className='col-md-3'>
         </div>
