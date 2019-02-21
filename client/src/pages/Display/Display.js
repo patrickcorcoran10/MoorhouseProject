@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2';
+import '../Display/Display.css';
+import axios from 'axios';
 
  class Display extends Component {
     constructor(props) {
@@ -24,8 +26,22 @@ import { Bar } from 'react-chartjs-2';
                     ]
                 }]
             },
+            inputs: {},
         };
     }
+
+    componentWillMount() {
+        console.log("We are mounted on the display page with record: ", this.props.id)
+        axios.get('/api/display' + this.props.id)
+        .then(res => {
+            let selected = res.data[0];
+            console.log(selected);
+            this.setState({
+                inputs: selected
+            });
+            console.log(this.state);
+        })
+    };
 
     
   render() {

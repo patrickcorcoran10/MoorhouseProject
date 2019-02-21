@@ -23,6 +23,13 @@ export default class View extends Component {
       console.log(this.state)
     })
   };
+
+  ROI = id => {
+    let idChosen = id.target.value;
+    console.log(idChosen);
+    this.props.history.push('/display');
+    this.props.click(idChosen);
+  }
   
   acceptPlanSelect = e => {
     this.setState({
@@ -72,7 +79,7 @@ export default class View extends Component {
                       <label className="input-group-text" htmlFor="inputGroupSelect02">Options</label>
                   </div>
               </div>
-              <button onClick={this.ROI}>View ROI</button>
+              <button value={this.state.inputs.id} onClick={this.ROI}>View ROI</button>
           </div>
           <div className='col-md-1'>
           </div>

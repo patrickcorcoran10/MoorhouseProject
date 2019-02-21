@@ -9,10 +9,6 @@ class Form extends Component {
         this.state = {
             inputs: {},
         };
-
-        // this.acceptCompanyName = this.acceptCompanyName.bind(this);
-        // this.acceptClientName = this.acceptClientName.bind(this);
-        // this.acceptEmployeeTotal = this.acceptEmployeeTotal.bind(this);
     };
     acceptCompanyName = event => {
         this.setState({
@@ -20,7 +16,6 @@ class Form extends Component {
             companyName: this.refs.companyName.value
             }
         });
-        console.log(event.target.value)
     };
     acceptClientName = e => {
         this.setState({
@@ -28,7 +23,6 @@ class Form extends Component {
                 clientName: this.refs.clientName.value
             }
         });
-        console.log(e.target.value)
     };
     acceptClientEmail = e => {
         this.setState({
@@ -36,7 +30,6 @@ class Form extends Component {
                 clientEmail: this.refs.clientEmail.value
             }
         });
-        console.log(this.state)
     };
     acceptDataCollectionTime = e => {
         this.setState({ 
@@ -64,11 +57,8 @@ class Form extends Component {
             inputs: {
                 emailVolume: this.refs.emailVolume.value
             }
-            
         })
-        console.log(e.target.value);
     };
-    
     saveInputs = event => {
         console.log('We are taking this and putting it in the database');
         axios.post('/api/moorhouseProject', {
@@ -101,7 +91,6 @@ class Form extends Component {
         this.refs.dataProcessingTime.value = '';
         this.refs.securityComplienceTime.value = '';
         this.refs.emailVolume.value = '';
-        // this.refs.planSelect.value = '';
         this.setState({
             inputs: {}
         })
