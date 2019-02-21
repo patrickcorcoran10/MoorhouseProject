@@ -1,0 +1,29 @@
+#header {
+    color: darkblue;
+    background: silver;
+}
+
+#tableLeft {
+    background: cadetblue;
+    text-align: center;
+}
+
+#tableRight {
+    background: cadetblue;
+    text-align: right;
+}
+
+p {
+    padding-top: 3px;
+    border: 4px;
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+
+strong {
+    text-align: right;
+}
+
+button {
+    text-align: center;
+}

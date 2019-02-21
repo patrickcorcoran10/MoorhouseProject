@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../View/View.css';
 
 export default class View extends Component {
   constructor(props) {
@@ -29,6 +30,17 @@ export default class View extends Component {
         paddingTop: '80px'
       }
     };
+    const assumptions = {
+      
+      emailCostPerEmployee: 1800,
+      chanceOfDataBreach: .025,
+      dataBreachCost: 1600000,
+      collectData: .17,
+      processData: .16,
+      annualHours: 2000
+    };
+    
+
 
     return (
       <div style={style.container} className='container'>
@@ -57,43 +69,25 @@ export default class View extends Component {
           <div className='row'>
             <div className='col-sm-8'>
               <p>Time Spent Collecting Data</p>
-              <br/>
               <p>Annual Hours</p>
-              <br/>
               <p>Hours spent per worker collecting data</p>
-              <br/>
               <p>Total Workers</p>
-              <br/>
               <p>Total hours spent collecting data</p>
-              <br/>
               <p>Cost per hour</p>
-              <br/>
               <p>Total cost of collecting data</p>
-              <br/>
               <p>Catalytic savings</p>
-              <br/>
               <strong>Data Collection Savings</strong>
-              <br/>
             </div>
             <div className='col-sm-4'>
+              <p>{assumptions.collectData}</p>
+              <p>{assumptions.annualHours}</p>
+              <p>{assumptions.collectData * assumptions.annualHours}</p>
+              <p>{this.state.inputs.totalEmployees}</p>
+              <p>{(assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)}</p>
+              <p>${this.state.inputs.costPerEmployee}</p>             
+              <p>${((assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)) * parseInt(this.state.inputs.costPerEmployee)}</p>
               <p>%</p>
-              <br/>
-              <p>#</p>
-              <br/>
-              <p>#</p>
-              <br/>
-              <p>#</p>
-              <br/>
-              <p>#</p>
-              <br/>
-              <p>$</p>
-              <br/>
-              <p>$</p>
-              <br/>
-              <p>%</p>
-              <br/>
               <strong>$</strong>
-              <br/>
             </div>
           </div>
         </div>
@@ -111,43 +105,25 @@ export default class View extends Component {
           <div className='row'>
             <div className='col-sm-8'>
               <p>Time spent processing data</p>
-              <br/>
               <p>Annual Hours</p>
-              <br/>
               <p>Hours spent per worker processing data</p>
-              <br/>
               <p>Total Workers</p>
-              <br/>
               <p>Total hours spent processing data</p>
-              <br/>
               <p>Cost per hour</p>
-              <br/>
               <p>Total cost of processing data</p>
-              <br/>
               <p>Catalytic savings</p>
-              <br/>
               <strong>Data Collection Savings</strong>
-              <br/>
             </div>
             <div className='col-sm-4'>
+              <p>{assumptions.processData}</p>
+              <p>{assumptions.annualHours}</p>
+              <p>{assumptions.processData * assumptions.annualHours}</p>
+              <p>{this.state.inputs.totalEmployees}</p>
+              <p>{this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours)}</p>
+              <p>${this.state.inputs.costPerEmployee}</p>
+              <p>${parseInt(this.state.inputs.costPerEmployee) * (this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours))}</p>
               <p>%</p>
-              <br/>
-              <p>#</p>
-              <br/>
-              <p>#</p>
-              <br/>
-              <p>#</p>
-              <br/>
-              <p>#</p>
-              <br/>
-              <p>$</p>
-              <br/>
-              <p>$</p>
-              <br/>
-              <p>%</p>
-              <br/>
               <strong>$</strong>
-              <br/>
             </div>
           </div>
         </div>
@@ -165,27 +141,17 @@ export default class View extends Component {
           <div className='row'>
             <div className='col-sm-8'>
               <p>Average cost of data breach</p>
-              <br/>
               <p>Chances of data breach</p>
-              <br/>
               <p>Total data breach costs</p>
-              <br/>
               <p>Catalytic savings</p>
-              <br/>
               <strong>Compliance and Security Savings</strong>
-              <br/>
             </div>
             <div className='col-sm-4'>
-              <p>$</p>
-              <br/>
+              <p>${assumptions.dataBreachCost}</p>
+              <p>{assumptions.chanceOfDataBreach}</p>
+              <p>{assumptions.dataBreachCost * assumptions.chanceOfDataBreach}</p>
               <p>%</p>
-              <br/>
-              <p>$</p>
-              <br/>
-              <p>%</p>
-              <br/>
               <strong>$</strong>
-              <br/>
             </div>
           </div>
         </div>
@@ -203,27 +169,17 @@ export default class View extends Component {
           <div className='row'>
             <div className='col-sm-8'>
               <p>Total users</p>
-              <br/>
               <p>Cost of unnecessary emails per user</p>
-              <br/>
               <p>Total email costs</p>
-              <br/>
               <p>Catalytic savings</p>
-              <br/>
               <strong>Automation Savings</strong>
-              <br/>
             </div>
             <div className='col-sm-4'>
-              <p>#</p>
-              <br/>
-              <p>$</p>
-              <br/>
-              <p>$</p>
-              <br/>
+              <p>{this.state.inputs.totalEmployees}</p>
+              <p>${assumptions.emailCostPerEmployee}</p>
+              <p>${this.state.inputs.totalEmployees * assumptions.emailCostPerEmployee}</p>
               <p>%</p>
-              <br/>
               <strong>$</strong>
-              <br/>
             </div>
           </div>
         </div>
