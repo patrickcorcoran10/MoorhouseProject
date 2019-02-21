@@ -7,7 +7,18 @@ module.exports = function(app) {
             res.json(dbDataPoints);
         });
     });
-    // Search a Single Record Route
+    // Get Route for Display
+    app.get('/api/display:id', function(req, res) {
+        db.moorhouseprojects.findAll({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(function(dbDataPoints) {
+            res.json(dbDataPoints)
+        });
+    });
+    // View a Single Record Route
     app.get('/api/view:id', function(req, res) {
         db.moorhouseprojects.findAll({
             where: {

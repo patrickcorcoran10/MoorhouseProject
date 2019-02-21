@@ -45,8 +45,21 @@ import axios from 'axios';
 
     
   render() {
+    const style = {
+        container: {
+            paddingTop: '80px'
+        }
+    }
+    const assumptions = {
+        emailCostPerEmployee: 1800,
+        chanceOfDataBreach: .025,
+        dataBreachCost: 1600000,
+        collectData: .17,
+        processData: .16,
+        annualHours: 2000
+      };
     return (
-        <div className='container'>
+         <div className='container' style={style.container}>
             <div className='row'>
                 <div className='col-md-1'>
                 </div>
@@ -62,10 +75,10 @@ import axios from 'axios';
                 </div>
                 <div className='col-md-2' id='numbers'>
                     <strong>Annual Subscription Cost:</strong>
-                    <p>Data Collection Savings</p>
-                    <p>Data Processsing Savings</p>
-                    <p>Complience and Security Savings</p>
-                    <p>Automation Savings</p>
+                    <p>Data Collection Savings: ${this.state.inputs.dataCollectionTime*((assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)) * (parseInt(this.state.inputs.costPerEmployee))}</p>
+                    <p>Data Processsing Savings: ${this.state.inputs.dataProcessingTime * parseInt(this.state.inputs.costPerEmployee) * (this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours))}</p>
+                    <p>Complience and Security Savings: ${this.state.inputs.securityComplienceTime * (assumptions.dataBreachCost * assumptions.chanceOfDataBreach)}</p>
+                    <p>Automation Savings: ${this.state.inputs.emailVolume * (this.state.inputs.totalEmployees * assumptions.emailCostPerEmployee)}</p>
                     <strong>Annual Catalytic Value</strong>
                     <hr/>
                     <strong>ROI</strong>
