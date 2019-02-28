@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 
 class Form extends Component {
@@ -204,7 +204,7 @@ class Form extends Component {
 
             </div>
             <div className='col-md-4'>
-                <button onClick={this.saveInputs}><Link to='/dashboard'>Calculate </Link></button>
+                <button onClick={this.saveInputs}>Calculate</button>
                 <button onClick={this.resetButton}>Reset Fields</button>
             </div>
             <div className='col-md-4'>

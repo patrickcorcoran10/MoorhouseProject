@@ -18,6 +18,19 @@ module.exports = function(app) {
             res.json(dbDataPoints)
         });
     });
+    // Put Route for Plan select on View Page
+    app.put('/api/update:id', function(req, res) {
+        db.moorhouseprojects.update({
+            planSelect: req.body.planSelect,
+        }, {
+            where: {
+                id: req.body.id
+            }
+        })
+        .then(function(dbDataPoints) {
+            res.json(dbDataPoints)
+        });
+    });
     // View a Single Record Route
     app.get('/api/view:id', function(req, res) {
         db.moorhouseprojects.findAll({

@@ -29,15 +29,25 @@ export default class View extends Component {
     console.log(idChosen);
     this.props.history.push('/display');
     this.props.click(idChosen);
-  }
+  };
   
-  acceptPlanSelect = e => {
-    this.setState({
+  acceptPlanSelect = (e, id) => {
+    e.preventDefault();
+    axios.put('/api/update'+this.props.id)
+    .then(res => {
+      let selected = res.data[0];
+      console.log(res);
+
+        // inputs: selected
+      });
+      this.setState({
         inputs: {
             planSelect: this.refs.planSelect.value
         }
-    })
-  };
+      });
+      this.componentWillMount();
+    };
+  
 
   render() {
     const style = {
@@ -70,7 +80,7 @@ export default class View extends Component {
           <div className='col-md-5'>
             <p>Plan Selection</p>
               <div className="input-group mb-3">
-                  <select ref='planSelect' onChange={this.acceptPlanSelect} className="custom-select" id="inputGroupSelect02">
+                  <select ref='planSelect' onChange={this.acceptPlanSelect=this.acceptPlanSelect.bind(this)} className="custom-select" id="inputGroupSelect02">
                       <option>Choose...</option>
                       <option value="8">Standard</option>
                       <option value="15">Plus</option>
@@ -213,14 +223,6 @@ export default class View extends Component {
         </div>
       </div>
       <hr/>
-      <div className='row'>
-        <div className='col-md-3'>
-        </div>
-        <div className='col-md-6'>
-        </div>
-        <div className='col-md-3'>
-        </div>
-      </div>
     </div>
     )
   }
