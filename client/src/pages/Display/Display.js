@@ -72,10 +72,10 @@ import axios from 'axios';
                                 datasets: [{
                                     // label: "Savings",
                                     data: [
-                                        617594,
-                                        181045,
-                                        153060,
-                                        106519,
+                                        this.state.inputs.dataCollectionTime*((assumptions.collectData * assumptions.annualHours) * parseInt(this.state.inputs.totalEmployees)) * (parseInt(this.state.inputs.costPerEmployee)),
+                                        this.state.inputs.dataProcessingTime * parseInt(this.state.inputs.costPerEmployee) * (this.state.inputs.totalEmployees * (assumptions.processData * assumptions.annualHours)),
+                                        this.state.inputs.securityComplienceTime * (assumptions.dataBreachCost * assumptions.chanceOfDataBreach),
+                                        this.state.inputs.emailVolume * (this.state.inputs.totalEmployees * assumptions.emailCostPerEmployee),
                                     ],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.6)',
