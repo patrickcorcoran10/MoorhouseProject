@@ -11,7 +11,7 @@ module.exports = function(app) {
     app.get('/api/display:id', function(req, res) {
         db.moorhouseprojects.findAll({
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         })
         .then(function(dbDataPoints) {
