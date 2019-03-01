@@ -118,7 +118,7 @@ export default class View extends Component {
               <p>Total hours spent collecting data</p>
               <p>Cost per hour</p>
               <p>Total cost of collecting data</p>
-              <p>Catalytic savings</p>
+              <p>BotCo savings</p>
               <strong>Data Collection Savings</strong>
             </div>
             <div className='col-sm-4'>
@@ -154,7 +154,7 @@ export default class View extends Component {
               <p>Total hours spent processing data</p>
               <p>Cost per hour</p>
               <p>Total cost of processing data</p>
-              <p>Catalytic savings</p>
+              <p>BotCo savings</p>
               <strong>Data Collection Savings</strong>
             </div>
             <div className='col-sm-4'>
@@ -186,7 +186,7 @@ export default class View extends Component {
               <p>Average cost of data breach</p>
               <p>Chances of data breach</p>
               <p>Total data breach costs</p>
-              <p>Catalytic savings</p>
+              <p>BotCo savings</p>
               <strong>Compliance and Security Savings</strong>
             </div>
             <div className='col-sm-4'>
@@ -214,7 +214,7 @@ export default class View extends Component {
               <p>Total users</p>
               <p>Cost of unnecessary emails per user</p>
               <p>Total email costs</p>
-              <p>Catalytic savings</p>
+              <p>BotCo savings</p>
               <strong>Automation Savings</strong>
             </div>
             <div className='col-sm-4'>
