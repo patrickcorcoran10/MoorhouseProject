@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Bar } from 'react-chartjs-2';
+import { Bar, Line, Pie } from 'react-chartjs-2';
 import '../Display/Display.css';
 import axios from 'axios';
+// import Canvas from 'react-canvas-js';
 
  class Display extends Component {
     constructor(props) {
@@ -9,24 +10,31 @@ import axios from 'axios';
         this.state = {
             graphInputs: {
                 labels: ['Data Collection Savings', 'Data Processing Savings', 'Complience and Security Savings', 'Automation Savings'],
-                dataSets: [{
-                    label: "Menu Orders",
+                datasets: [{
+                    label: "Savings",
                     data: [
-                        30,
-                        6,
-                        69,
-                        20,
+                        617594,
+                        181045,
+                        153060,
+                        106519,
                     ],
                     blackgroundColor: [
                         'rgba(255, 99, 132, 0.6)',
                         'rgba(54, 162, 235, 0.6)',
                         'rgba(255, 206, 86, 0.6)',
                         'rgba(75, 192, 192, 0.6)',
-                        'rgba(54, 162, 235, 0.6)'
-                    ]
-                }]
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(255, 99, 132, 0.6)'
+                    ],
+                    boarderWidth: 1,
+                    borderColor: '#777',
+                    hoverBorderWidth: 3,
+                    hoverBorderColor: '#000'
+                }],
             },
             inputs: {},
+            planSelect: '',
         };
     }
 
@@ -37,7 +45,8 @@ import axios from 'axios';
             let selected = res.data[0];
             console.log(selected);
             this.setState({
-                inputs: selected
+                inputs: selected,
+                planSelect: res.data
             });
             console.log(this.state);
         })
@@ -45,11 +54,15 @@ import axios from 'axios';
 
     
   render() {
+    
+    
+    
+    
     const style = {
         container: {
             paddingTop: '80px'
         }
-    }
+    };
     const assumptions = {
         emailCostPerEmployee: 1800,
         chanceOfDataBreach: .025,
@@ -57,14 +70,14 @@ import axios from 'axios';
         collectData: .17,
         processData: .16,
         annualHours: 2000
-      };
+    };
     return (
          <div className='container' style={style.container}>
             <div className='row'>
                 <div className='col-md-1'>
                 </div>
                 <div className='col-md-10'>
-                    <h6>Company Graphical Display</h6>
+                    <h6>Graphical Display for {this.state.inputs.companyName}</h6>
                 </div>
                 <div className='col-md-1'>
                 </div>
@@ -77,8 +90,18 @@ import axios from 'axios';
                     <div className="graph">
                         <Bar 
                             data={this.state.graphInputs}
-                            options = {{
-                                maintainAspectRatio: false
+                            width={100}
+                            height={50}
+                            options={{
+                                title: {
+                                    display: true,
+                                    text: 'Savings by Value Lever',
+                                    fontSize: 25
+                                },
+                                legend: {
+                                    display: true,
+                                    text: 'example'
+                                }
                             }}
                         />
                     </div>
