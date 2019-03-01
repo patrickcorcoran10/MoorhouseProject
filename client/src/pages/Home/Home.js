@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import Card from '../components/Card/Card';
+import { Jumbotron, Container } from 'reactstrap';
+// import Col from '../../components/Col';
+import Row from '../../components/Row';
 
 export default class Home extends Component {
     constructor(props) {
@@ -10,7 +12,7 @@ export default class Home extends Component {
             inputs: []
         };
     }
-    componentDidMount() {
+    componentWillMount() {
         console.log("we are mounted on the Dashboard");
         axios.get('/api/dashboard')
         .then(res => {
@@ -18,18 +20,18 @@ export default class Home extends Component {
             this.setState({ inputs: res.data })
         })
     };
-    verify = id => {
-        // event.preventDefault();
-        let deleteId = id.target.value
-        alert("You are deleting a record ", deleteId);
+    // verify = id => {
+    //     // event.preventDefault();
+    //     let deleteId = id.target.value
+    //     alert("You are deleting a record ", deleteId);
         
-    }
+    // }
     onDelete = event => {
         event.preventDefault();
         var deleteId = event.target.value;
         axios.delete('/api/delete' + deleteId)
         .then((response) => {
-            this.componentDidMount();
+            this.componentWillMount();
         })
         .catch(function (error) {
             console.log(error)
@@ -57,20 +59,19 @@ export default class Home extends Component {
     }
     return (
       <div style={style.container}>
-        <div className='row'>
-            <div className='col-md-3'>
-            </div>
-            <div className='col-md-6'>
-                <h3>Current Clients</h3>
-            </div>
-            <div className='col-md-3'>
-            </div>
-        </div>
-        <div className='row'>
+        <Jumbotron fluid>
+            <Container fluid>
+                <h4>Current Clients</h4>
+            </Container>
+        </Jumbotron>
+        
+        <Row>
         
         {this.state.inputs.map((data, index) => (
+           
             
-            <div className="col-md-5" key={data.id}>
+            
+            <div className='col-md-6' key={data.id}>
                 <div className="card" >
                     <div className="card-header">
                         <strong>{data.companyName}</strong>
@@ -84,11 +85,12 @@ export default class Home extends Component {
                 </div>
                 <hr />
             </div>
+            
+            
+        
+            
         ))}
-        <div className='col-md-2'>
-
-        </div>
-        </div>
+        </Row>
       </div>
     )
   }

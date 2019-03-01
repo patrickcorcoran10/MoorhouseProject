@@ -75,11 +75,30 @@ class Form extends Component {
         })
         .then(function(response) {
             console.log(response);
+            alert("Your Company Information has been sent along. Thanks!")
+            // this.props.history.push('/dashboard')
         })
         .catch(function(error) {
             console.log(error);
-        });
-        this.props.history.push('/dashboard');
+        })
+        this.refs.companyName.value = '';
+        this.refs.clientName.value = '';
+        this.refs.clientEmail.value = '';
+        this.refs.totalEmployees.value = '';
+        this.refs.costPerEmployee.value = '';
+        this.refs.dataCollectionTime.value = '';
+        this.refs.dataProcessingTime.value = '';
+        this.refs.securityComplienceTime.value = '';
+        this.refs.emailVolume.value = '';
+        this.setState({
+            inputs: {}
+        })
+        // .then(function() {
+        //     // this.history.push('/dashboard');
+        // });
+
+        // setTimeout(this.props.history.push('/dashboard', 2000))
+        // this.props.history.push('/dashboard');
     };
     resetButton = e => {
         e.preventDefault()

@@ -9,6 +9,7 @@ export default class View extends Component {
     this.state={
       inputs: {}
     };
+    console.log(this.state)
   };
 
   componentWillMount() {
@@ -18,7 +19,8 @@ export default class View extends Component {
       let selected = res.data[0]
       console.log(selected);
       this.setState({
-        inputs: selected
+        inputs: selected,
+        planSelect: ''
       });
       console.log(this.state)
     })
@@ -31,21 +33,26 @@ export default class View extends Component {
     this.props.click(idChosen);
   };
   
-  acceptPlanSelect = (e, id) => {
+  acceptPlanSelect = (e) => {
     e.preventDefault();
-    axios.put('/api/update'+this.props.id)
-    .then(res => {
-      let selected = res.data[0];
-      console.log(res);
-
-        // inputs: selected
-      });
-      this.setState({
-        inputs: {
-            planSelect: this.refs.planSelect.value
-        }
-      });
-      this.componentWillMount();
+    let id = this.state.inputs.id;
+    console.log(id)
+    console.log(e.target.value, this.refs.planSelect.value, id);
+    this.setState({
+      
+        planSelect: this.refs.planSelect.value,
+      
+    })
+    console.log(this.state.planSelect);
+    axios.put('/api/update'+this.state.inputs.id, {
+      planSelect: this.refs.planSelect.value
+    })
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
     };
   
 
@@ -63,7 +70,7 @@ export default class View extends Component {
       processData: .16,
       annualHours: 2000
     };
-    
+    console.log(this.state)
     return (
       <div style={style.container} className='container'>
         <div className="row" id="header">

@@ -1,26 +1,46 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+   } from 'reactstrap';
 
-export default function Navbar() {
-  return (
-    <div id='navbar' className='navbar'>
-      <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <Link to="/dashboard" className="navbar-brand">Dashboard</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/form" className="nav-link">Form</Link>
-        </li>
-        {/* <li className="nav-item">
-          <Link to="/view" className="nav-link">Company View</Link>
-        </li> */}
-        {/* <li className="nav-item">
-          <Link to="/display" className="nav-link">Display</Link>
-        </li> */}
-        <li className="nav-item">
-          <Link to="/signin" className="nav-link">Log-Out</Link>
-        </li>
-      </ul>
-    </div>
-  )
+export default class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/dashboard">Dashboard</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/form">Form</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/">Log Out</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+    );
+  }
 }
