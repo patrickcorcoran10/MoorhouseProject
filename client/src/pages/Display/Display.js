@@ -9,29 +9,7 @@ import axios from 'axios';
         super(props)
         this.state = {
             graphInputs: {
-                labels: ['Data Collection Savings', 'Data Processing Savings', 'Complience and Security Savings', 'Automation Savings'],
-                datasets: [{
-                    label: "Savings",
-                    data: [
-                        617594,
-                        181045,
-                        153060,
-                        106519,
-                    ],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.6)',
-                        'rgba(54, 162, 235, 0.6)',
-                        'rgba(255, 206, 86, 0.6)',
-                        'rgba(75, 192, 192, 0.6)',
-                        'rgba(153, 102, 255, 0.6)',
-                        'rgba(255, 159, 64, 0.6)',
-                        'rgba(255, 99, 132, 0.6)'
-                    ],
-                    boarderWidth: 1,
-                    borderColor: '#777',
-                    hoverBorderWidth: 3,
-                    hoverBorderColor: '#000'
-                }],
+                
             },
             inputs: {},
             planSelect: '',
@@ -89,7 +67,31 @@ import axios from 'axios';
                 <div className='col-md-10'>
                     <div className="graph">
                         <Bar 
-                            data={this.state.graphInputs}
+                            data={{
+                                labels: ['Data Collection Savings', 'Data Processing Savings', 'Complience and Security Savings', 'Automation Savings'],
+                                datasets: [{
+                                    // label: "Savings",
+                                    data: [
+                                        617594,
+                                        181045,
+                                        153060,
+                                        106519,
+                                    ],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.6)',
+                                        'rgba(54, 162, 235, 0.6)',
+                                        'rgba(255, 206, 86, 0.6)',
+                                        'rgba(75, 192, 192, 0.6)',
+                                        'rgba(153, 102, 255, 0.6)',
+                                        'rgba(255, 159, 64, 0.6)',
+                                        'rgba(255, 99, 132, 0.6)'
+                                    ],
+                                    boarderWidth: 1,
+                                    borderColor: '#777',
+                                    hoverBorderWidth: 3,
+                                    hoverBorderColor: '#000'
+                                }],
+                            }}
                             width={100}
                             height={50}
                             options={{
@@ -99,7 +101,7 @@ import axios from 'axios';
                                     fontSize: 25
                                 },
                                 legend: {
-                                    display: true,
+                                    display: false,
                                     text: 'example'
                                 }
                             }}
